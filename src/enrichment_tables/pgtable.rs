@@ -12,12 +12,10 @@ use vector_lib::configurable::configurable_component;
 // use vrl::value::{ObjectMap, Value};
 // use chrono::{DateTime, Utc};
 use crate::config::EnrichmentTableConfig;
-use snafu::{Snafu};
 use postgres_openssl::MakeTlsConnector;
 use tokio_postgres::{Config, Error as PgError, NoTls, Row};
 // use tokio_postgres::types::Type;
 use openssl::{
-    error::ErrorStack,
     ssl::{SslConnector, SslMethod},
 };
 use vrl::value::{ObjectMap, Value};
