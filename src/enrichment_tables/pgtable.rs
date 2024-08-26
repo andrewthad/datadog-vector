@@ -23,24 +23,6 @@ use openssl::{
 use vrl::value::{ObjectMap, Value};
 // use futures::executor::block_on;
 
-#[derive(Debug, Snafu)]
-enum ConnectError {
-    #[snafu(display("failed to create tls connector: {}", source))]
-    TlsFailed { source: ErrorStack },
-    #[snafu(display("failed to connect ({}): {}", endpoint, source))]
-    ConnectionFailed { source: PgError, endpoint: String },
-}
-
-#[derive(Debug, Snafu)]
-enum BuildError {
-    #[snafu(display("invalid endpoint: {}", source))]
-    InvalidEndpoint { source: PgError },
-    // #[snafu(display("host missing"))]
-    // HostMissing,
-    // #[snafu(display("multiple hosts not supported: {:?}", hosts))]
-    // MultipleHostsNotSupported { hosts: Vec<Host> },
-}
-
 /// Configuration of TLS when connecting to PostgreSQL.
 #[configurable_component]
 #[derive(Clone, Debug)]
